@@ -1,10 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :require_user_logged_in
   
-  def index
-    @microposts = current_user.bookmark_micropost.page(params[:page])
-  end
-  
   def create
     micropost = Micropost.find(params[:micropost_id])
     current_user.like(micropost)
